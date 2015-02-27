@@ -1,6 +1,7 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+#lib = File.expand_path('../lib', __FILE__)
+#$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$:.push File.expand_path("../lib", __FILE__)
 require 'saltrb/version'
 
 Gem::Specification.new do |spec|
@@ -8,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.version       = Saltrb::VERSION
   spec.authors       = ["Dwi Sasongko Supriyadi"]
   spec.email         = ["ruckuus@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{SaltStack wrapper in Ruby}
+  spec.description   = %q{An attempt to wrap SaltStack command in Ruby}
   spec.homepage      = ""
   spec.license       = "MIT"
 
