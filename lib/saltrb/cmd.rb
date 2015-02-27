@@ -5,14 +5,8 @@ module Saltrb
 
     funcs.each do |name|
       define_singleton_method "#{name}", ->(target, command) {
-        return self.runner("#{name}", target, command, Saltrb::DEFAULT_TIMEOUT)
+        return Saltrb.runner("#{name}", target, self::BASE, command, Saltrb::DEFAULT_TIMEOUT)
       }
-    end
-
-    def self.runner(method, target, command, timeout)
-      _command = "'#{target}' #{self::BASE}.#{method} '#{command}'"
-      rv = Saltrb.exec_command(_command, Saltrb::DEFAULT_TIMEOUT)
-      return rv
     end
   end
 end
