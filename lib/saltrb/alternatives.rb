@@ -1,9 +1,9 @@
 require_relative 'common'
 
 module Saltrb
-  module Cmd
-    BASE="cmd"
-    funcs = [ :exec_code, :has_exec, :retcode, :run, :run_all, :run_chroot, :run_stderr, :run_stdout, :script, :script_retcode, :tty, :which, :which_bin ]
+  module Alternatives
+    BASE="alternatives"
+    funcs = [ :auto, :check_installed, :display, :install, :remove, :set, :show_current ]
 
     funcs.each do |name|
       define_singleton_method "#{name}", ->(target, command) {

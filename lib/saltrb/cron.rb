@@ -1,9 +1,9 @@
 require_relative 'common'
 
 module Saltrb
-  module Cmd
-    BASE="cmd"
-    funcs = [ :exec_code, :has_exec, :retcode, :run, :run_all, :run_chroot, :run_stderr, :run_stdout, :script, :script_retcode, :tty, :which, :which_bin ]
+  module Cron
+    BASE="cron"
+    funcs = [ :list_tab, :ls, :raw_cron, :rm, :rm_env, :rm_job, :set_env, :set_job, :set_special, :write_cron_file, :write_cron_file_verbose ]
 
     funcs.each do |name|
       define_singleton_method "#{name}", ->(target, command) {
