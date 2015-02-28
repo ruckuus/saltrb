@@ -1,0 +1,14 @@
+require_relative 'common'
+
+module Saltrb
+  module Sqlite3
+    BASE="sqlite3"
+    funcs = [ :fetch, :indexes, :indices, :modify, :sqlite_version, :tables, :version ]
+
+    funcs.each do |name|
+      define_singleton_method "#{name}", ->(target, command) {
+        return Saltrb.runner("#{name}", target, self::BASE, command, Saltrb::DEFAULT_TIMEOUT)
+      }
+    end
+  end
+end
