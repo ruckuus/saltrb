@@ -6,8 +6,8 @@ module Saltrb
     funcs = [ :add_pkg, :check_extra_requirements, :pack_sources, :parse_targets, :sort_pkglist, :stringify, :version, :version_clean,] 
 
     funcs.each do |name|
-      define_singleton_method "#{name}", ->(target, command) {
-        return Saltrb.runner("#{name}", target, self::BASE, command, Saltrb::DEFAULT_TIMEOUT)
+      define_singleton_method "#{name}", ->(target, command, timeout = Saltrb::DEFAULT_TIMEOUT) {
+        return Saltrb.runner("#{name}", target, self::BASE, command, timeout)
       }
     end
   end

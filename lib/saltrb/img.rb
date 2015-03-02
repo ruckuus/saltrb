@@ -6,8 +6,8 @@ module Saltrb
     funcs = [ :bootstrap, :mnt_image, :mount_image, :umount_image ]
 
     funcs.each do |name|
-      define_singleton_method "#{name}", ->(target, command) {
-        return Saltrb.runner("#{name}", target, self::BASE, command, Saltrb::DEFAULT_TIMEOUT)
+      define_singleton_method "#{name}", ->(target, command, timeout = Saltrb::DEFAULT_TIMEOUT) {
+        return Saltrb.runner("#{name}", target, self::BASE, command, timeout)
       }
     end
   end

@@ -6,8 +6,8 @@ module Saltrb
     funcs = [ :install, :list, :sources_add, :sources_list, :sources_remove, :uninstall, :update, :update_system ]
 
     funcs.each do |name|
-      define_singleton_method "#{name}", ->(target, command) {
-        return Saltrb.runner("#{name}", target, self::BASE, command, Saltrb::DEFAULT_TIMEOUT)
+      define_singleton_method "#{name}", ->(target, command, timeout = Saltrb::DEFAULT_TIMEOUT) {
+        return Saltrb.runner("#{name}", target, self::BASE, command, timeout)
       }
     end
   end
