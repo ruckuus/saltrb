@@ -1,6 +1,7 @@
 # Saltrb
 
-TODO: Write a gem description
+SaltStack CLI wrapper in Ruby. You will require Salt ( http://docs.saltstack.com/en/latest/ref/cli/salt-master.html ) as well as Salt CLI. 
+Salt installation path is currently hard-coded to '/usr/bin/salt'
 
 ## Installation
 
@@ -26,8 +27,8 @@ require 'saltrb/cmd'
 # /usr/bin/salt '*' cmd.run 'uname -a'
 Saltrb::Cmd.run("*", "uname -a")
 ```
-CAVEAT: salt installation path is currently hard-coded to '/usr/bin/salt'
-Available module: (CAVEAT: You have to include the module individually)
+
+Available module:
 ```ruby
 saltrb/acl
 saltrb/aliases
