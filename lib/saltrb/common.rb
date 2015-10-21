@@ -17,7 +17,11 @@ module Saltrb
   end
 
   def self.runner(method, target, base, command, timeout = self::DEFAULT_TIMEOUT)
-    _command = "'#{target}' #{base}.#{method} '#{command}'"
+    if command.nil?
+      _command = "'#{target}' #{base}.#{method}"
+    else
+      _command = "'#{target}' #{base}.#{method} '#{command}'"
+    end
     rv = Saltrb.exec_command(_command, timeout)
     return rv
   end
